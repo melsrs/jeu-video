@@ -18,7 +18,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 55px;
-  background-image: url(../Images/perso.png);
+  background-image: url(Images/perso.png);
   background-size: 50px 75px;
   background-repeat: no-repeat;
 }
@@ -49,7 +49,7 @@ body {
     position: absolute;
     bottom: 0;
     /* right: 0px; */
-    background-image: url(../Images/plante.png);
+    background-image: url(Images/plante.png);
     background-size: 44px;
     background-repeat: no-repeat;
 }
