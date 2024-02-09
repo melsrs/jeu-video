@@ -5,7 +5,7 @@ function saut() {
   // Enlevemment de la fonction à la classe pour pouvoir sauter de nouveau
   setTimeout(function () {
     personnage.classList.remove("saut");
-  }, 500);
+  }, 400);
 }
 
 document.addEventListener("keydown", function (event) {

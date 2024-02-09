@@ -24,7 +24,7 @@ body {
 }
 
 .saut {
-    animation: saut 0.8s linear;
+    animation: saut 0.4s linear;
 }
 
 @keyframes saut {
