@@ -1,11 +1,12 @@
 const personnage = document.querySelector(".personnage");
+const obstacle = document.querySelector(".obstacle1");
 
 function saut() {
   personnage.classList.add("saut");
-  // Enlevemment de la fonction à la classe pour pouvoir sauter de nouveau
+  // Enlèvemment de la fonction à la classe pour pouvoir sauter de nouveau
   setTimeout(function () {
     personnage.classList.remove("saut");
-  }, 400);
+  }, 700);
 }
 
 document.addEventListener("keydown", function (event) {
@@ -14,32 +15,47 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-const obstacle = document.querySelector(".obstacle");
-const defilement = obstacle.getBoundingClientRect();
-
+const positionObstacle = obstacle.getBoundingClientRect();
 let positionActuelle = 670;
 const positionFinale = 0;
-const vitesse = 6; // Vitesse de déplacement (en pixels par frame)
+const vitesse = 4; // Vitesse de déplacement (en pixels par frame)
 
-// Fonction pour animer le glissement
+let toursEffectues = 0;
+
 function glisserGauche() {
-  if (positionActuelle > positionFinale) {
-    positionActuelle -= vitesse;
-    obstacle.style.left = positionActuelle + "px";
-    requestAnimationFrame(glisserGauche);
+  if (toursEffectues < 5) {
+    if (positionActuelle > positionFinale) {
+      positionActuelle -= vitesse;
+      obstacle.style.left = positionActuelle + "px";
+      detecterCollision();
+      requestAnimationFrame(glisserGauche);
+    } else {
+      // Réinitialiser la position et incrémenter le compteur de tours
+      positionActuelle = 670;
+      toursEffectues++;
+      glisserGauche();
+    }
   } else {
     obstacle.style.display = "none";
   }
 }
+
 glisserGauche();
 
-const collisionPersonnage = personnage.getBoundingClientRect();
-console.log(personnage.getBoundingClientRect());
+function detecterCollision() {
+  const personnagePosition = personnage.getBoundingClientRect();
+  const obstaclePosition = obstacle.getBoundingClientRect();
 
-// Détecter collision 
-
-function collision() {
-  if (collisionPersonnage.y === 170) {
-    console.log(collisionPersonnage)
+  if (
+    obstaclePosition.left < personnagePosition.right &&
+    obstaclePosition.right > personnagePosition.left &&
+    obstaclePosition.top < personnagePosition.bottom &&
+    obstaclePosition.bottom > personnagePosition.top
+  ) {
+    alert("GAME OVER");
+    console.log("Collision");
   }
 }
+
+console.log(personnage.getBoundingClientRect());
+console.log(obstacle.getBoundingClientRect());
