@@ -9,7 +9,7 @@ function saut() {
   }, 700);
 }
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keyup", function (event) {
   if (event.code === "Space") {
     saut();
   }
@@ -56,6 +56,3 @@ function detecterCollision() {
     console.log("Collision");
   }
 }
-
-console.log(personnage.getBoundingClientRect());
-console.log(obstacle.getBoundingClientRect());
