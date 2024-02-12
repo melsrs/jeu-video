@@ -18,7 +18,7 @@ document.addEventListener("keyup", function (event) {
 const positionObstacle = obstacle.getBoundingClientRect();
 let positionActuelle = 670;
 const positionFinale = 0;
-const vitesse = 4; // Vitesse de déplacement (en pixels par frame)
+const vitesse = 5; // Vitesse de déplacement (en pixels par frame)
 
 let toursEffectues = 0;
 
@@ -37,6 +37,7 @@ function glisserGauche() {
     }
   } else {
     obstacle.style.display = "none";
+    alert("BRAVO TU AS GAGNÉ");
   }
 }
 
@@ -53,6 +54,12 @@ function detecterCollision() {
     obstaclePosition.bottom > personnagePosition.top
   ) {
     alert("GAME OVER");
-    console.log("Collision");
+    recommencerJeu();
   }
+}
+
+function recommencerJeu() {
+  positionActuelle = 670;
+  toursEffectues = 0;
+  obstacle.style.display = "block";
 }
