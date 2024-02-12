@@ -12,6 +12,16 @@ body {
   background-size: 65%;
 }
 
+.score {
+  width: 115px;
+  height: 35px;
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  text-align: center;
+  background-color: red;
+}
+
 .personnage {
   width: 45px;
   height: 74px;
@@ -32,16 +42,16 @@ body {
     top: 170px;
   }
 
-  25%{
-    top : 135px
+  25% {
+    top: 135px;
   }
 
   50% {
     top: 100px;
   }
 
-  75%{
-    top : 65px;
+  75% {
+    top: 65px;
   }
 
   100% {
@@ -59,4 +69,3 @@ body {
   background-size: 32px;
   background-repeat: no-repeat;
 }
-

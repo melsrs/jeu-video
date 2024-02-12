@@ -15,7 +15,6 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
-const positionObstacle = obstacle.getBoundingClientRect();
 let positionActuelle = 670;
 const positionFinale = 0;
 const vitesse = 5; // Vitesse de déplacement (en pixels par frame)
@@ -63,3 +62,20 @@ function recommencerJeu() {
   toursEffectues = 0;
   obstacle.style.display = "block";
 }
+
+let maxBar = 200;
+let currentBar = 0;
+let progressBar;
+let intervalId;
+
+let initialisation = function() {
+  progressBar = document.getElementById( "progressBar" );
+  progressBar.value = currentBar;
+  progressBar.max = maxBar;
+}
+
+let displayBar = function() {
+  currentBar++;
+  progressBar.value = currentBar;
+}
+ 
