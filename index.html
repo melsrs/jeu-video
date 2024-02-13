@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test jeu</title>
+    <title>Jump Cat</title>
     <link rel="stylesheet" href="jeu.css" />
     <script src="jeu.js" defer></script>
   </head>
@@ -18,11 +18,13 @@
 
     <button class="boutonOuverture" onclick="openForm()">Les règles</button>
     <div class="regle" style="display: none">
-      <p>
-        Le but du jeu est de sauter par-dessus les obstacles en appuyant sur la
-        touche espace. Bonne chance !
-      </p>
-      <button class="boutonFermeture" onclick="closeForm()">Fermer</button>
+      <ul class="liste">
+        <li>Le but du jeu est de sauter par-dessus les obstacles pour augmenter le score.</li>
+        <li>Le jeu démarre lorsque la touche espace est pressée.</li>
+        <li>La touche espace est également requise pour sauter.</li>
+        <li>Bonne chance !</li>
+      </ul>
+      <button class="boutonFermeture" onclick="closeForm()">✖</button>
     </div>
   </body>
 </html>
