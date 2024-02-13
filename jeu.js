@@ -1,9 +1,15 @@
 const personnage = document.querySelector(".personnage");
 const obstacle = document.querySelector(".obstacle1");
+const scoreDisplay = document.getElementById("valeurScore");
+
+let positionActuelle = 670;
+const positionFinale = 0;
+let score = 0;
+const vitesse = 5; // Vitesse de déplacement (en pixels par frame)
 
 function saut() {
   personnage.classList.add("saut");
-  // Enlèvemment de la fonction à la classe pour pouvoir sauter de nouveau
+  // Enlèvement de la fonction à la classe pour pouvoir sauter de nouveau
   setTimeout(function () {
     personnage.classList.remove("saut");
   }, 700);
@@ -15,28 +21,21 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
-let positionActuelle = 670;
-const positionFinale = 0;
-const vitesse = 5; // Vitesse de déplacement (en pixels par frame)
-
-let toursEffectues = 0;
-
 function glisserGauche() {
-  if (toursEffectues < 5) {
-    if (positionActuelle > positionFinale) {
-      positionActuelle -= vitesse;
-      obstacle.style.left = positionActuelle + "px";
-      detecterCollision();
-      requestAnimationFrame(glisserGauche);
-    } else {
-      // Réinitialiser la position et incrémenter le compteur de tours
-      positionActuelle = 670;
-      toursEffectues++;
-      glisserGauche();
+  if (positionActuelle > positionFinale) {
+    positionActuelle -= vitesse;
+    obstacle.style.left = positionActuelle + "px";
+    detecterCollision();
+
+    if (positionActuelle <= positionFinale) {
+      score++;
+      scoreDisplay.textContent = score;
     }
+
+    requestAnimationFrame(glisserGauche);
   } else {
-    obstacle.style.display = "none";
-    alert("BRAVO TU AS GAGNÉ");
+    positionActuelle = 670;
+    glisserGauche();
   }
 }
 
@@ -59,23 +58,6 @@ function detecterCollision() {
 
 function recommencerJeu() {
   positionActuelle = 670;
-  toursEffectues = 0;
-  obstacle.style.display = "block";
+  score = 0;
+  scoreDisplay.textContent = score;
 }
-
-let maxBar = 200;
-let currentBar = 0;
-let progressBar;
-let intervalId;
-
-let initialisation = function() {
-  progressBar = document.getElementById( "progressBar" );
-  progressBar.value = currentBar;
-  progressBar.max = maxBar;
-}
-
-let displayBar = function() {
-  currentBar++;
-  progressBar.value = currentBar;
-}
- 

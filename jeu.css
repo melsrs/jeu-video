@@ -13,13 +13,20 @@ body {
 }
 
 .score {
-  width: 115px;
+  width: 85px;
   height: 35px;
   position: absolute;
   top: 9px;
   right: 10px;
-  text-align: center;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #f4e7da;
+}
+
+p {
+  margin: 0 0 0 15px;
 }
 
 .personnage {
