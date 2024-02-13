@@ -10,10 +10,19 @@
   <body>
     <div class="container">
       <div class="score">
-        <p>Score: <span id="valeurScore">0</span></p>
+        <p class="scoreTexte">Score: <span id="valeurScore">0</span></p>
       </div>
       <div class="personnage"></div>
       <div class="obstacle1"></div>
+    </div>
+
+    <button class="boutonOuverture" onclick="openForm()">Les règles</button>
+    <div class="regle" style="display: none">
+      <p>
+        Le but du jeu est de sauter par-dessus les obstacles en appuyant sur la
+        touche espace. Bonne chance !
+      </p>
+      <button class="boutonFermeture" onclick="closeForm()">Fermer</button>
     </div>
   </body>
 </html>
