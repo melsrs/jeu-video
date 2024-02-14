@@ -10,3 +10,5 @@ Le but du jeu est de sauter par-dessus les obstacles pour augmenter le score.
 Le jeu démarre lorsque la touche espace est pressée.
 La touche espace est également requise pour sauter.
 Bonne chance !
+
+Démo : https://melsrs.github.io/jeu-video/
